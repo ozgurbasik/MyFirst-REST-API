@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Add this import
 import re
 
 app = Flask(__name__)
+CORS(app)
 
 users_info: dict
 
@@ -17,28 +19,34 @@ users_info = {
 
 @app.route('/api/auth/signup', methods=['POST'])
 def signup():
-
-    #check for matching usernames and valid password_list generation
-
     data = request.get_json()
+    
+    # Debug print to check received data
+    print(f"Received data: {data}")
+
+    if not data or 'username' not in data or 'password' not in data:
+        return jsonify({'error': 'Invalid request, missing username or password'}), 400
+
     username = data.get('username')
-    password= data.get('password')
+    password = data.get('password')
 
     if username in users_info:
         return jsonify({'error': 'User already exists'}), 400
-    
-    if not re.search(r'[A-Z]' , password):
+
+    # Debug print to check password validation
+    print(f"Validating password: {password}")
+
+    if not re.search(r'[A-Z]', password):
         return jsonify({'error': 'Password must contain at least one uppercase letter'}), 400
-    elif not re.search(r'[a-z]', password):
+    if not re.search(r'[a-z]', password):
         return jsonify({'error': 'Password must contain at least one lowercase letter'}), 400
-    elif not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+    if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
         return jsonify({'error': 'Password must contain at least one special character'}), 400
-    else:
-        pass
     
     new_user = {
-    'password': password,
-    'items': {}}
+        'password': password,
+        'items': {}
+    }
     
     users_info[username] = new_user
 
@@ -132,4 +140,5 @@ def delete_item():
     return jsonify({'message': 'Item deleted successfully'}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='127.0.0.1', port=5500)
+
