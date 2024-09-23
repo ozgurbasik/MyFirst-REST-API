@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center, // Center the column
           children: <Widget>[
             Text(
-              'Item Management', // Title text
+              'Item Management System', // Title text
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold), // Style for the title
@@ -129,7 +129,8 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       ElevatedButton(onPressed: _login, child: Text('Login')),
-                      ElevatedButton(onPressed: _signup, child: Text('Signup')),
+                      ElevatedButton(
+                          onPressed: _signup, child: Text('Sign up')),
                     ],
                   ),
                   SizedBox(height: 20),

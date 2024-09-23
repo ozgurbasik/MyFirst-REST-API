@@ -101,7 +101,7 @@ def edit_item(user):
         return jsonify({'error': 'User not found'}), 404
     
     if new_name == '':
-        return jsonify({'error':'Enter a New Name '})
+        return jsonify({'error':'Enter a New Name '}), 404
 
     item = next((item for item in users[user]['items'] if item['item_id'] == item_id), None)
     
