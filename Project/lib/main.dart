@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _login() async {
     final response = await http.post(
-      Uri.parse('http://127.0.0.1:5000/api/login'),
+      Uri.parse('http://ozgurbasik:5000/api/login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8'
       },
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _signup() async {
     final response = await http.post(
-      Uri.parse('http://127.0.0.1:5000/api/signup'),
+      Uri.parse('http://ozgurbasik:5000/api/signup'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8'
       },
@@ -173,7 +173,7 @@ class _UserPageState extends State<UserPage> {
 
   Future<void> _getItems() async {
     final response = await http.get(
-      Uri.parse('http://127.0.0.1:5000/api/${widget.username}/item/get'),
+      Uri.parse('http://ozgurbasik:5000/api/${widget.username}/item/get'),
       headers: <String, String>{'Content-Type': 'application/json'},
     );
 
@@ -195,7 +195,7 @@ class _UserPageState extends State<UserPage> {
 
   Future<void> _addItem() async {
     final response = await http.post(
-      Uri.parse('http://127.0.0.1:5000/api/${widget.username}/item/add'),
+      Uri.parse('http://ozgurbasik:5000/api/${widget.username}/item/add'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8'
       },
@@ -226,7 +226,7 @@ class _UserPageState extends State<UserPage> {
     }
 
     final response = await http.delete(
-      Uri.parse('http://127.0.0.1:5000/api/${widget.username}/item/delete'),
+      Uri.parse('http://ozgurbasik:5000/api/${widget.username}/item/delete'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8'
       },
@@ -255,7 +255,7 @@ class _UserPageState extends State<UserPage> {
     }
 
     final response = await http.put(
-      Uri.parse('http://127.0.0.1:5000/api/${widget.username}/item/edit'),
+      Uri.parse('http://ozgurbasik:5000/api/${widget.username}/item/edit'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8'
       },
