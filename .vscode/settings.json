@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/ozgur/Desktop/Documents/Code Library/Projects/restapi/linux"
+    "cmake.sourceDirectory": "C:/Users/ozgur/Desktop/Documents/Code Library/Projects/restapi/linux",
+    "cmake.ignoreCMakeListsMissing": true
 }

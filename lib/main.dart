@@ -183,7 +183,7 @@ class _UserPageState extends State<UserPage> {
             (data['items'] as List).map((item) => item['name']));
         _itemIds = List<String>.from((data['items'] as List).map((item) =>
             item['item_id'])); // Assuming each item has a unique 'item_id'
-        _message = "Items retrieved successfully.";
+        //_message = "Items retrieved successfully.";
       });
     } else {
       setState(() {
